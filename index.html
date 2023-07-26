@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Data Diri</title>
+  </head>
+  <body style="align-content: center">
+    <?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $nama = test_input($_POST["nama"]);
+  $tempat = test_input($_POST["tempat"]);
+  $tanggal = test_input($_POST["tanggal"]);
+  $bulan = test_input($_POST["bulan"]);
+  $tahun = test_input($_POST["tahun"]);
+  $alamat = test_input($_POST["alamat"]);
+  $gender = test_input($_POST["gender"]);
+  $telp = test_input($_POST["telp"]);
+  
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+    <div style="border: black 1px solid; max-width: 800px">
+      <div style="text-align: center">
+        <strong>
+          <h1>Form Data Diri</h1>
+        </strong>
+      </div>
+    </div>
+    <div style="border: black 1px solid; max-width: 800px; padding:10px 2px;"
+      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?" method="post">      
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" name="nama" id="nama" style="margin-bottom: 4px;"/><br>
+        <label for="">Tempat, Tanggal Lahir:</label>
+        <input type="text" name="tempat" id="">,
+        <input type="number" name="tanggal" id="" style="width: 40px;" placeholder="dd"> /
+        <input type="number" name="bulan" id=""style="width: 40px;" placeholder="mm"> /
+        <input type="number" name="tahun" id="" style="width: 50px; margin-bottom: 4px;" placeholder="yyyy"><br>
+        <label for="">Alamat:</label>
+        <textarea name="alamat" id="" cols="15" rows="3"></textarea><br>
+        <label for="">No. Telp:</label>
+        <input type="text" name="telp" id="" style="margin-bottom: 4px;"/><br>
+        <label for="">Jenis Kelamin:</label>
+        <input type="radio" name="gender" id="" >Laki-laki</input>
+        <input type="radio" name="gender" id="" >Perempuan</input><br>
+        <label for="">Agama:</label>
+        <select style="margin: 4px 0px;">
+          <option>Islam</option>
+          <option>Kristen</option>
+          <option>Katolik</option>
+          <option>Budha</option>
+          <option>Lainnya</option>
+        </select><br>
+        <label for="">Hobi:</label>
+        <input type="checkbox" name="bacabuku" id="">Baca Buku</input>
+        <input type="checkbox" name="olahraga" id="">Olah Raga</input>
+        <input type="checkbox" name="maingame" id="">Main Game</input>
+        <input type="checkbox" name="hiking" id="">Hiking</input><br>
+        <input type="button" value="Tampilkan" style="margin-top: 4px;">
+        <input type="reset" value="Reset">
+      </form>
+    </div>
+    <?php
+echo "<h2>Your Input:</h2>";
+echo $nama;
+echo "<br>";
+echo $tempat
+echo $tanggal
+echo $bulan
+echo $tahun
+echo $alamat
+echo $gender;
+echo $telp
+?>
+  </body>
+</html>
